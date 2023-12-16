@@ -1,6 +1,7 @@
 import { mark } from "regenerator-runtime";
-// import { Fraction } from "fractional";
-const Fraction = require("fractional").Fraction;
+// import { Fraction } from "../../node_modules/fractional/index.js";
+import fracty from "fracty";
+// const Fraction = require("fractional").Fraction;
 import View from "./view.js";
 
 class RecipeView extends View {
@@ -113,7 +114,7 @@ class RecipeView extends View {
       <div class="recipe__quantity">${
         ing.quantity === null || ing.quantity === 0
           ? " "
-          : new Fraction(ing.quantity).toString()
+          : new fracty(ing.quantity).toString()
       }  </div>
       <div class="recipe__description">
         <span class="recipe__unit"> ${
