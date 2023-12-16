@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Engredients | Findout the ingredients of any meal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" type="text/css" />
+    <script defer type="module" src="./js/controller.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- New recipe form -->
+      
+      <!--------------------------------- Header ---------------------------->
+      <header class="header">
+        <p class="header__logo"><span>En</span>gredient</p>
+        <form class="search">
+          <input
+            type="text"
+            class="search__field"
+            placeholder="Find the secret ingredients"
+          />
+          <button class="btn search__btn">
+            <ion-icon name="search-outline" class="search__icon"></ion-icon>
+          </button>
+        </form>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <button class="nav__btn nav__btn--add-recipe">
+                <ion-icon
+                  name="add-circle-outline"
+                  class="nav__icon"
+                ></ion-icon>
+                <span>Add recipe</span>
+              </button>
+            </li>
+            <li class="nav__item nav__item--bookmarks">
+              <button class="nav__btn nav__btn--add-recipe btn-bookmarks">
+                <ion-icon name="heart-outline" class="nav__icon liked"></ion-icon>
+                <span>likes</span>
+              </button>
+              <div class="bookmarks">
+                <!-- <div class="message">
+                  <ion-icon name="sad-outline"></ion-icon>
+                  <p>You seem not to like any of our recipes :(</p>
+                </div> -->
+                <ul class="bookmark__list">
+                  <!-- <li class="preview">
+                    <a class="preview__link" href="#23456">
+                      <figure class="preview__fig">
+                        <img src="./Inspiration/navbar.png" alt="Test" />
+                      </figure>
+                      <div class="preview__data">
+                        <h4 class="preview__name">
+                          Pasta with Tomato Cream ...
+                        </h4>
+                        <p class="preview__publisher">The Pioneer Woman</p>
+                      </div>
+                    </a>
+                  </li>
+                  <li class="preview">
+                    <a class="preview__link" href="#23456">
+                      <figure class="preview__fig">
+                        <img src="./Inspiration/navbar.png" alt="Test" />
+                      </figure>
+                      <div class="preview__data">
+                        <h4 class="preview__name">
+                          Pasta with Tomato Cream ...
+                        </h4>
+                        <p class="preview__publisher">The Pioneer Woman</p>
+                      </div>
+                    </a>
+                  </li> -->
+                </ul>
+              </div>
+            </li>
+            <li class="nav__item">
+              <button class="nav__btn nav__btn--add-recipe btn--menu">
+                <ion-icon
+                  name="ellipsis-vertical-outline"
+                  class="nav__icon"
+                ></ion-icon>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <!--------------------------------- Hero Container ---------------------------->
+      <div class="search__container">
+
+        <div class="search__results">
+          <ul class="results">
+            <!-- <li class="preview">
+              <a
+              href="#5ed6604591c37cdc054bcc13"
+              class="preview__link preview__link--active"
+              >
+              <figure class="preview__fig">
+                <img src="./src/hamburger-1281855_1280.jpg" alt="Beef Burger" />
+              </figure>
+              <div class="preview__data">
+                <h4 class="preview__title">Pasta with Tomato Cream ...</h4>
+                <p class="preview__publisher">The pioneer Woman</p>
+              </div>
+            </a>
+          </li> -->
+          <!-- <li class="preview preview--active">
+            <a
+            href="#5ed6604591c37cdc054bcc7e"
+            class="preview__link preview__link--active"
+            >
+            <figure class="preview__fig">
+              <img src="./src/hamburger-1281855_1280.jpg" alt="Beef Burger" />
+            </figure>
+            <div class="preview__data">
+              <h4 class="preview__title">Pasta with Tomato Cream ...</h4>
+              <p class="preview__publisher">The pioneer Woman</p>
+            </div>
+          </a>
+        </li> -->
+      </ul>
+        <!-- <div class="spinner"></div> -->
+        
+      </div>
+      <div class="pagination">
+        <!-- <button class="btn--inline pagination__btn--prev">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+          <span>Page 1</span>
+        </button> -->
+        <div class="pages">
+          <!-- <button class="btn__page btn__page--back btn--disabled"><ion-icon name="chevron-back-outline"></ion-icon></button>
+          <button class="btn__page">1</button>
+          <button class="btn__page btn__page--active">2</button>
+          <button class="btn__page">3</button>
+          <button class="btn__page">4</button>
+          
+          
+          
+          <button class="btn__page btn__page--next"><ion-icon name="chevron-forward-outline"></ion-icon></button> -->
+          
+        </div>
+        <!-- <button class="btn--inline pagination__btn--next">
+          <span>Page 3</span>
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </button> -->
+      </div>
+    </div>
+      <!--------------------------------- Recipe ---------------------------->
+      <main class="main">
+        <div class="categories categories-hidden">
+          <ul class="category__list">
+            <li class="category__item">
+              <figure class="category__fig">
+                <svg
+                  width="800px"
+                  height="800px"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M5 10C5 7.23858 7.23858 5 10 5H14C16.7614 5 19 7.23858 19 10V10.8382C17.9457 9.59948 16.026 9.60669 14.9818 10.8598C14.7311 11.1607 14.2689 11.1607 14.0182 10.8598C12.9679 9.59944 11.0321 9.59944 9.98178 10.8598C9.73105 11.1607 9.26895 11.1607 9.01822 10.8598C7.97395 9.60669 6.05435 9.59948 5 10.8382V10ZM21 10V10.5C21.2559 10.5 21.5118 10.5976 21.7071 10.7929C22.0976 11.1834 22.0976 11.8166 21.7071 12.2071L21.5246 12.3896C21.1544 12.7599 20.7056 12.999 20.234 13.1095C21.2565 13.4231 22 14.3747 22 15.5C22 16.3607 21.565 17.1199 20.9029 17.5696C20.9651 17.6999 21 17.8459 21 18V18.5C21 20.433 19.433 22 17.5 22H6.5C4.567 22 3 20.433 3 18.5V18C3 17.8459 3.03486 17.6999 3.09712 17.5696C2.43498 17.1199 2 16.3607 2 15.5C2 14.3747 2.74348 13.4231 3.76602 13.1095C3.29437 12.999 2.84564 12.7599 2.47537 12.3896L2.29289 12.2071C1.90237 11.8166 1.90237 11.1834 2.29289 10.7929C2.48816 10.5976 2.74408 10.5 3 10.5V10C3 6.13401 6.13401 3 10 3H14C17.866 3 21 6.13401 21 10ZM5.35966 13H8.83259C8.32453 12.8675 7.84903 12.5809 7.48178 12.1402C7.23105 11.8393 6.76895 11.8393 6.51822 12.1402L6.46105 12.2088C6.15489 12.5762 5.77366 12.8406 5.35966 13ZM10.1674 13H13.8326C13.3245 12.8675 12.849 12.5809 12.4818 12.1402C12.2311 11.8393 11.7689 11.8393 11.5182 12.1402C11.151 12.5809 10.6755 12.8675 10.1674 13ZM15.1674 13H18.6403C18.2263 12.8406 17.8451 12.5762 17.5389 12.2088L17.4818 12.1402C17.2311 11.8393 16.7689 11.8393 16.5182 12.1402C16.151 12.5809 15.6755 12.8675 15.1674 13ZM5 18V18.5C5 19.3284 5.67157 20 6.5 20H17.5C18.3284 20 19 19.3284 19 18.5V18H5ZM4 15.5C4 15.2239 4.22386 15 4.5 15H19.5C19.7761 15 20 15.2239 20 15.5C20 15.7761 19.7761 16 19.5 16H4.5C4.22386 16 4 15.7761 4 15.5Z"
+                    fill="#000000"
+                  />
+                </svg>
+              </figure>
+              <p class="category__title">Burger</p>
+            </li>
+            <li class="category__item">
+              <figure class="category__fig">
+                <svg
+                  id="chicken"
+                  width="800px"
+                  height="800px"
+                  viewBox="0 0 1024 1024"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill="#000000"
+                    d="M349.952 716.992 478.72 588.16a106.688 106.688 0 0 1-26.176-19.072 106.688 106.688 0 0 1-19.072-26.176L304.704 671.744c.768 3.072 1.472 6.144 2.048 9.216l2.048 31.936 31.872 1.984c3.136.64 6.208 1.28 9.28 2.112zm57.344 33.152a128 128 0 1 1-216.32 114.432l-1.92-32-32-1.92a128 128 0 1 1 114.432-216.32L416.64 469.248c-2.432-101.44 58.112-239.104 149.056-330.048 107.328-107.328 231.296-85.504 316.8 0 85.44 85.44 107.328 209.408 0 316.8-91.008 90.88-228.672 151.424-330.112 149.056L407.296 750.08zm90.496-226.304c49.536 49.536 233.344-7.04 339.392-113.088 78.208-78.208 63.232-163.072 0-226.304-63.168-63.232-148.032-78.208-226.24 0C504.896 290.496 448.32 474.368 497.792 523.84zM244.864 708.928a64 64 0 1 0-59.84 59.84l56.32-3.52 3.52-56.32zm8.064 127.68a64 64 0 1 0 59.84-59.84l-56.32 3.52-3.52 56.32z"
+                  />
+                </svg>
+              </figure>
+              <p class="category__title">Chicken</p>
+            </li>
+            <li class="category__item">
+              <figure class="category__fig">
+                <svg
+                  width="800px"
+                  height="800px"
+                  viewBox="0 -0.5 25 25"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M5.41426 9.84705C3.81505 8.02453 3.08762 5.43048 3.00433 2.85964C5.78936 2.51869 8.65074 2.96646 10.6859 4.65508C12.8997 6.49188 14.723 9.59242 16.1 12.4359C16.5925 13.453 17.087 14.4712 17.6171 15.4696C17.7331 15.6878 17.9259 15.8554 18.1582 15.9398L21.4733 17.1453L19.5528 18.1056C19.3592 18.2024 19.2023 18.3593 19.1056 18.5528L18.1453 20.4734L16.9398 17.1583C16.8553 16.9261 16.6875 16.7332 16.4694 16.6171C15.4652 16.0837 14.4505 15.5652 13.4169 15.0911C13.406 15.0861 13.395 15.0813 13.3839 15.0767C11.3311 14.2231 9.2177 12.9895 7.57493 11.7628C7.99112 11.6821 8.40082 11.5655 8.79409 11.4131C10.1056 10.9048 11.319 9.95954 11.9057 8.50889C12.1127 7.99689 11.8655 7.41398 11.3535 7.20692C10.8415 6.99986 10.2586 7.24706 10.0516 7.75906C9.72347 8.5703 9.01207 9.18367 8.07132 9.54829C7.22681 9.8756 6.26577 9.97211 5.41426 9.84705ZM24.3417 16.0602L19.2072 14.1931C18.9918 13.7753 18.5823 12.9687 17.9994 11.7691C18.021 11.2121 18.2265 10.7656 18.518 10.4674C18.8352 10.1428 19.3031 9.94129 19.9102 9.996C20.2925 10.0304 20.6608 9.84307 20.8579 9.51377C21.0551 9.18448 21.0464 8.77139 20.8356 8.45068C18.8889 5.48973 15.1688 3.42052 11.7315 2.93007C8.88421 0.718498 5.07406 0.434734 1.82403 1.01564C1.35506 1.09946 1.01033 1.50248 1.00021 1.97878C0.933709 5.10597 1.69387 8.66535 3.9411 11.2004C4.14544 12.8947 4.92442 14.4889 5.87842 15.8769C6.90484 17.3702 8.18179 18.6943 9.32578 19.7386C9.62461 20.0114 10.0584 20.0772 10.4247 19.9054C10.791 19.7335 11.0177 19.3579 10.9989 18.9537C10.9675 18.2765 11.1801 17.7858 11.4862 17.4773C11.7629 17.1986 12.1855 16.9985 12.7666 16.9939C13.6508 17.4069 14.6733 17.9337 15.1922 18.205L17.0602 23.3418C17.1967 23.7173 17.5437 23.9755 17.9426 23.9984C18.3415 24.0213 18.7157 23.8046 18.8944 23.4473L20.7453 19.7454L24.4472 17.8945C24.8046 17.7158 25.0213 17.3415 24.9983 16.9426C24.9754 16.5437 24.7172 16.1968 24.3417 16.0602ZM18.1672 8.31336C17.6246 8.55851 17.1502 8.94056 16.7915 9.41299C16.1134 8.18213 15.3394 6.93278 14.4689 5.78948C15.8591 6.40075 17.1589 7.27059 18.1672 8.31336ZM7.52665 14.744C7.30038 14.4148 7.09243 14.0827 6.90613 13.7491C7.94983 14.4885 9.11855 15.2057 10.3187 15.8382C9.93219 16.1582 9.61624 16.5636 9.39611 17.0147C8.72981 16.3169 8.0818 15.5517 7.52665 14.744ZM7.5 7.00003C8.32843 7.00003 9 6.32846 9 5.50003C9 4.6716 8.32843 4.00003 7.5 4.00003C6.67157 4.00003 6 4.6716 6 5.50003C6 6.32846 6.67157 7.00003 7.5 7.00003Z"
+                    fill="#000000"
+                  />
+                </svg>
+              </figure>
+              <p class="category__title">fish</p>
+            </li>
+            <li class="category__item">
+              <figure class="category__fig">
+                <svg
+                  width="800px"
+                  height="800px"
+                  viewBox="0 0 1024 1024"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill="#000000"
+                    d="M608 224v-64a32 32 0 0 0-64 0v336h26.88A64 64 0 0 0 608 484.096V224zm101.12 160A64 64 0 0 0 672 395.904V384h64V224a32 32 0 1 0-64 0v160h37.12zm74.88 0a92.928 92.928 0 0 1 91.328 110.08l-60.672 323.584A96 96 0 0 1 720.32 896H303.68a96 96 0 0 1-94.336-78.336L148.672 494.08A92.928 92.928 0 0 1 240 384h-16V224a96 96 0 0 1 188.608-25.28A95.744 95.744 0 0 1 480 197.44V160a96 96 0 0 1 188.608-25.28A96 96 0 0 1 800 224v160h-16zM670.784 512a128 128 0 0 1-99.904 48H453.12a128 128 0 0 1-99.84-48H352v-1.536a128.128 128.128 0 0 1-9.984-14.976L314.88 448H240a28.928 28.928 0 0 0-28.48 34.304L241.088 640h541.824l29.568-157.696A28.928 28.928 0 0 0 784 448h-74.88l-27.136 47.488A132.405 132.405 0 0 1 672 510.464V512h-1.216zM480 288a32 32 0 0 0-64 0v196.096A64 64 0 0 0 453.12 496H480V288zm-128 96V224a32 32 0 0 0-64 0v160h64-37.12A64 64 0 0 1 352 395.904zm-98.88 320 19.072 101.888A32 32 0 0 0 303.68 832h416.64a32 32 0 0 0 31.488-26.112L770.88 704H253.12z"
+                  />
+                </svg>
+              </figure>
+              <p class="category__title">fries</p>
+            </li>
+            <li class="category__item">
+              <figure class="category__fig">
+                <svg
+                  width="800px"
+                  height="800px"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M8.18092 2.56556C7.90392 3.05195 7.65396 3.65447 7.416 4.36507C5.57795 9.34447 2.73476 16.6246 1.36225 20.12C0.73894 21.7073 2.25721 23.2963 3.87117 22.7465C7.38796 21.5484 14.6626 19.0869 19.6353 17.5194L19.6504 17.5145C20.3639 17.277 20.9659 17.0333 21.4491 16.7641C21.9273 16.4977 22.3551 16.1704 22.6426 15.7347C23.2987 14.7406 22.9351 13.6998 22.5012 12.8954C19.7712 7.83439 16.3585 4.2775 12.0968 1.5703C11.6898 1.31179 11.2341 1.09226 10.7418 1.02286C10.2141 0.948472 9.69595 1.05467 9.22968 1.36307C8.79315 1.65181 8.45686 2.08103 8.18092 2.56556ZM15.0912 9.09151C13.5105 7.4048 11.7893 5.97947 9.55526 4.3325C9.6817 4.01505 9.80284 3.75901 9.91885 3.55532C10.1115 3.21703 10.2575 3.08115 10.333 3.03119C10.3788 3.0009 10.4025 2.99481 10.4626 3.00327C10.5579 3.01672 10.7358 3.07517 11.0244 3.25848C14.994 5.78016 18.1714 9.08132 20.741 13.8449C21.0989 14.5085 20.9833 14.6233 20.9739 14.6325L20.9734 14.6331C20.9318 14.696 20.8089 14.8313 20.4757 15.017C20.2861 15.1226 20.0491 15.2333 19.7558 15.3501C18.0975 12.7134 16.6772 10.7839 15.0912 9.09151ZM13.6318 10.4591C15.0211 11.9415 16.2981 13.6452 17.8022 16.0033C12.9009 17.5716 6.46194 19.751 3.22621 20.8533L3.22459 20.8538L3.22391 20.8531L3.22329 20.8525L3.22387 20.851C4.48689 17.6345 7.00299 11.1934 8.83498 6.28876C10.7878 7.75003 12.2738 9.00998 13.6318 10.4591ZM10 13C11.1046 13 12 12.1046 12 11C12 9.89545 11.1046 9.00002 10 9.00002C8.89543 9.00002 8 9.89545 8 11C8 12.1046 8.89543 13 10 13ZM10 16C10 17.1046 9.10457 18 8 18C6.89543 18 6 17.1046 6 16C6 14.8954 6.89543 14 8 14C9.10457 14 10 14.8954 10 16ZM13 17C14.1046 17 15 16.1046 15 15C15 13.8954 14.1046 13 13 13C11.8954 13 11 13.8954 11 15C11 16.1046 11.8954 17 13 17Z"
+                    fill="#000000"
+                  />
+                </svg>
+              </figure>
+              <p class="category__title">pizza</p>
+            </li>
+            <li class="category__item">
+              <figure class="category__fig">
+                <svg
+                  fill="#000000"
+                  width="800px"
+                  height="800px"
+                  viewBox="0 0 50 50"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <path
+                    d="M11.003906 3.9863281 A 1.0001 1.0001 0 0 0 10.048828 4.6894531L9.4101562 6.6503906C8.6545081 8.9644197 8.910072 11.627244 10.162109 13.546875C10.988072 14.813244 11.247852 17.014498 10.6875 18.730469L10.048828 20.689453 A 1.0005836 1.0005836 0 1 0 11.951172 21.310547L12.589844 19.349609C13.345492 17.03558 13.089928 14.372756 11.837891 12.453125C11.011928 11.186756 10.752148 8.9855023 11.3125 7.2695312L11.951172 5.3105469 A 1.0001 1.0001 0 0 0 11.003906 3.9863281 z M 18.003906 3.9863281 A 1.0001 1.0001 0 0 0 17.048828 4.6894531L16.410156 6.6503906C15.654508 8.9644197 15.910072 11.627244 17.162109 13.546875C17.988072 14.813244 18.247852 17.014498 17.6875 18.730469L17.048828 20.689453 A 1.0005836 1.0005836 0 1 0 18.951172 21.310547L19.589844 19.349609C20.345492 17.03558 20.089928 14.372756 18.837891 12.453125C18.011928 11.186756 17.752148 8.9855023 18.3125 7.2695312L18.951172 5.3105469 A 1.0001 1.0001 0 0 0 18.003906 3.9863281 z M 25.003906 3.9863281 A 1.0001 1.0001 0 0 0 24.048828 4.6894531L23.410156 6.6503906C22.654508 8.9644197 22.910072 11.627244 24.162109 13.546875C24.988072 14.813244 25.247852 17.014498 24.6875 18.730469L24.048828 20.689453 A 1.0005836 1.0005836 0 1 0 25.951172 21.310547L26.589844 19.349609C27.345492 17.03558 27.089928 14.372756 25.837891 12.453125C25.011928 11.186756 24.752148 8.9855023 25.3125 7.2695312L25.951172 5.3105469 A 1.0001 1.0001 0 0 0 25.003906 3.9863281 z M 43.605469 10.005859C43.37979 10.005295 43.15447 10.027258 42.933594 10.070312C42.050087 10.242532 41.233124 10.757554 40.710938 11.570312L40.792969 11.460938L28.357422 26L4 26 A 1.0001 1.0001 0 0 0 3 27L3 30C3 30.201563 3.069136 30.384586 3.078125 30.583984 A 1.0001 1.0001 0 0 0 3.21875 31.640625C3.7431756 35.806528 6.0600565 39.465497 9.1171875 42.128906C12.576847 45.143003 16.846465 47 20.5 47L29.5 47C33.153535 47 37.423153 45.143003 40.882812 42.128906C44.342472 39.114809 47 34.866667 47 30L47 27 A 1.0001 1.0001 0 0 0 46 26L35.9375 26L46.205078 15.597656 A 1.0001 1.0001 0 0 0 46.283203 15.509766C47.468538 13.983156 47.135249 11.742091 45.556641 10.626953C44.96483 10.208897 44.282504 10.007554 43.605469 10.005859 z M 43.587891 11.994141C43.866957 11.996292 44.151151 12.082289 44.402344 12.259766C45.066906 12.729216 45.196951 13.621237 44.707031 14.267578L33.126953 26L30.990234 26L42.3125 12.761719 A 1.0001 1.0001 0 0 0 42.392578 12.652344C42.614391 12.307102 42.949506 12.090312 43.3125 12.019531C43.403249 12.001836 43.494868 11.993424 43.587891 11.994141 z M 5 28L28.675781 28 A 1.0001 1.0001 0 0 0 28.955078 28L33.404297 28 A 1.0001 1.0001 0 0 0 33.669922 28L45 28L45 30C45 34.133333 42.7087 37.885191 39.568359 40.621094C36.428019 43.356997 32.446465 45 29.5 45L20.5 45C17.553535 45 13.571981 43.356997 10.431641 40.621094C7.8116502 38.338527 5.8700615 35.328419 5.2695312 32L41 32 A 1.0001 1.0001 0 1 0 41 30L5 30L5 28 z"
+                  />
+                </svg>
+              </figure>
+              <p class="category__title">soup</p>
+            </li>
+          </ul>
+        </div>
+        <div class="recipe">
+          
+      </main>
+    </div>
+    <div class="overlay hidden"></div>
+    <div class="add-recipe-window hidden">
+      <button class="btn--close-modal">&times;</button>
+      <form class="upload upload__form">
+        <div class="upload__column">
+          <h3 class="upload__heading">Recipe data</h3>
+          <div class="input__group">
+            <label>Title</label>
+            <input value="" type="text" required name="title" placeholder="Recipe title">
+            <ion-icon name="checkmark-circle-outline" class="icon__check"></ion-icon>
+            <span class="input__check input__check--hidden">Title must not contain any special character</span>
+          </div>
+          <div class="input__group">
+            <label>URL</label>
+            <input value="" type="text" required name="url" placeholder="URL">
+            <ion-icon name="checkmark-circle-outline" class="icon__check"></ion-icon>
+            <span class="input__check input__check--hidden">Title must not contain any special character</span>
+          </div>
+          <div class="input__group">
+            <label>Image URL</label>
+            <input value="" type="text" required name="image_url" placeholder="Image URL">
+            <ion-icon name="checkmark-circle-outline" class="icon__check"></ion-icon>
+            <span class="input__check input__check--hidden">Title must not contain any special character</span>
+          </div>
+          <div class="input__group">
+            <label>Publisher</label>
+            <input value="" type="text" required name="publisher" placeholder="Publisher">
+            <ion-icon name="checkmark-circle-outline" class="icon__check"></ion-icon>
+            <span class="input__check input__check--hidden">Title must not contain any special character</span>
+          </div>
+          <div class="input__group">
+            <label>Prep time</label>
+            <input value="" type="text" required name="prep_time" placeholder="Prep Time">
+            <ion-icon name="checkmark-circle-outline" class="icon__check"></ion-icon>
+            <span class="input__check input__check--hidden">Title must not contain any special character</span>
+          </div>
+          <div class="input__group">
+            <label>Servings</label>
+            <input value="" type="text" required name="servings" placeholder="Servings">
+            <ion-icon name="checkmark-circle-outline" class="icon__check"></ion-icon>
+            <span class="input__check input__check--hidden">Title must not contain any special character</span>
+          </div>
+        </div>
+        <div class="upload__column">
+          <h3 class="upload__heading">Ingredients</h3>
+          <div class="input__group">
+            <label>Ingredient #1 (Quantity - Unit - Description)   
+              <!-- <span class="ing__format">
+                <span class="ing__format--quantity">Quantity</span>-
+                <span class="ing__format--unit">Unit</span>-
+                <span class="ing__format--description">Description</span>
+              </span> -->
+              </label>
+            <input value="" type="text" required name="ing_1" placeholder="Ingredient 1" class="ingredient__input">
+            <ion-icon name="checkmark-circle-outline" class="icon__check"></ion-icon>
+            <span class="input__check input__check--hidden">Title must not contain any special character</span>
+          </div>
+          <div class="input__group">
+            <label>Ingredient #2 (Quantity - Unit - Description)</label>
+            <input value="" type="text" required name="ing_2" placeholder="Ingredient 2" class="ingredient__input">
+            <ion-icon name="checkmark-circle-outline" class="icon__check"></ion-icon>
+            <span class="input__check input__check--hidden">Title must not contain any special character</span>
+          </div>
+          <div class="input__group">
+            <label>Ingredient #3 (Quantity - Unit - Description)</label>
+            <input value="" type="text" required name="ing_3" placeholder="Ingredient 3" class="ingredient__input">
+            <ion-icon name="checkmark-circle-outline" class="icon__check"></ion-icon>
+            <span class="input__check input__check--hidden">Title must not contain any special character</span>
+          </div>
+          <div class="input__group">
+            <label>Ingredient #4 (Quantity - Unit - Description)</label>
+            <input value="" type="text" required name="ing_4" placeholder="Ingredient 4" class="ingredient__input">
+            <ion-icon name="checkmark-circle-outline" class="icon__check"></ion-icon>
+            <span class="input__check input__check--hidden">Title must not contain any special character</span>
+          </div>
+          <div class="input__group">
+            <label>Ingredient #5 (Quantity - Unit - Description)</label>
+            <input value="" type="text" required name="ing_5" placeholder="Ingredient 5" class="ingredient__input">
+            <ion-icon name="checkmark-circle-outline" class="icon__check"></ion-icon>
+            <span class="input__check input__check--hidden">Title must not contain any special character</span>
+          </div>
+          <div class="input__group">
+            <label>Ingredient #6 (Quantity - Unit - Description)</label>
+            <input value="" type="text" required name="ing_6" placeholder="Ingredient 6" class="ingredient__input">
+            <ion-icon name="checkmark-circle-outline" class="icon__check"></ion-icon>
+            <span class="input__check input__check--hidden">Title must not contain any special character</span>
+          </div>
+        </div>
+        <button class="btn--upload">Upload Recipe</button>
+      </form>
+    </div>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
+
+<!-- <figure class="recipe__fig">
+            <img
+              src="src/hamburger-1281855_1280.jpg"
+              alt="food"
+              class="recipe__img"
+            />
+          </figure>
+          <h1 class="recipe__title">
+            <span>Pasta with tomato cream sauce</span>
+          </h1>
+          <div class="recipe__details">
+            <div class="recipe__info">
+              <ion-icon
+                name="time-outline"
+                class="recipe__info-icon"
+              ></ion-icon>
+              <span class="recipe__info-data recipe__info-data--minutes"
+                >45</span
+              >
+              <span class="recipe__info-text">minutes</span>
+            </div>
+            <div class="recipe__info">
+              <ion-icon name="people-outline"></ion-icon>
+              <span class="recipe__info-data recipe__info-data--minutes"
+                >4</span
+              >
+              <span class="recipe__info-text">servings</span>
+              <div class="recipe__info-buttons">
+                <button class="btn--tiny btn--increase-servings">
+                  <ion-icon name="add-circle"></ion-icon>
+                </button>
+                <button class="btn--tiny btn--increase-servings">
+                  <ion-icon name="remove-circle"></ion-icon>
+                </button>
+              </div>
+            </div>
+            <button class="btn--round">
+              <ion-icon name="heart"></ion-icon>
+            </button>
+          </div>
+          <div class="recipe__ingredients">
+            <h2 class="heading-2">Recipe ingredients</h2>
+            <ul class="recipe__ingredient-list">
+              <li class="recipe__ingredient">
+                <ion-icon
+                  name="checkmark-circle"
+                  class="recipe__icon"
+                ></ion-icon>
+                <div class="recipe__quantity">1000</div>
+                <div class="recipe__description">
+                  <span class="recipe__unit">g</span> pasta
+                </div>
+              </li>
+              <li class="recipe__ingredient">
+                <ion-icon
+                  name="checkmark-circle"
+                  class="recipe__icon"
+                ></ion-icon>
+                <div class="recipe__quantity">1000</div>
+                <div class="recipe__description">
+                  <span class="recipe__unit">g</span> pasta
+                </div>
+              </li>
+              <li class="recipe__ingredient">
+                <ion-icon
+                  name="checkmark-circle"
+                  class="recipe__icon"
+                ></ion-icon>
+                <div class="recipe__quantity">1000</div>
+                <div class="recipe__description">
+                  <span class="recipe__unit">g</span> pasta
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="recipe__directions">
+            <h2 class="heading-2">Hot to cook it</h2>
+            <div class="recipe__direction-box">
+              <h3 class="heading-3">
+                Are you looking for this recipe directions?
+              </h3>
+              <p class="recipe__directions-text">
+                Engredients brought this recipe from it's original owner
+                <span class="recipe__publisher">The Pioneer Woman</span>. You
+                can check out the original recipe directions at their website.
+              </p>
+              <button class="btn-full">Directions</button>
+            </div>
+          </div> -->

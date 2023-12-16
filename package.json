@@ -1,0 +1,19 @@
+{
+  "name": "06.forkify-app",
+  "version": "1.0.0",
+  "description": "Food Recipe app",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "author": "Takie Eldeen",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.10.3"
+  },
+  "dependencies": {
+    "core-js": "^3.33.3",
+    "fractional": "^1.0.0",
+    "regenerator-runtime": "^0.14.0"
+  }
+}
