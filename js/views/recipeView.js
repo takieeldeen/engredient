@@ -1,6 +1,6 @@
 import { mark } from "regenerator-runtime";
-// // import { Fraction } from "fractional";
-// const Fraction = require("fractional").Fraction;
+// import { Fraction } from "fractional";
+const Fraction = require("fractional").Fraction;
 import View from "./view.js";
 
 class RecipeView extends View {
