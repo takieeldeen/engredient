@@ -112,9 +112,7 @@ class RecipeView extends View {
         class="recipe__icon"
       ></ion-icon>
       <div class="recipe__quantity">${
-        ing.quantity === null || ing.quantity === 0
-          ? " "
-          : new fracty(ing.quantity).toString()
+        ing.quantity === null || ing.quantity === 0 ? " " : fracty(ing.quantity)
       }  </div>
       <div class="recipe__description">
         <span class="recipe__unit"> ${

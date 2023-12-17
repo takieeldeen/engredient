@@ -16,7 +16,7 @@
       
       <!--------------------------------- Header ---------------------------->
       <header class="header">
-        <p class="header__logo"><span>En</span>gredient</p>
+        <a href="#" class="header__logo"><span>En</span>gredient</a>
         <form class="search">
           <input type="text" class="search__field" placeholder="Find the secret ingredients">
           <button class="btn search__btn">
@@ -24,6 +24,11 @@
           </button>
         </form>
         <nav class="nav">
+          <li class="nav__item">
+            <button class="nav__btn nav__btn--add-recipe btn--menu">
+              <ion-icon name="ellipsis-vertical-outline" class="nav__icon"></ion-icon>
+            </button>
+          </li>
           <ul class="nav__list">
             <li class="nav__item">
               <button class="nav__btn nav__btn--add-recipe">
@@ -71,11 +76,7 @@
                 </ul>
               </div>
             </li>
-            <li class="nav__item">
-              <button class="nav__btn nav__btn--add-recipe btn--menu">
-                <ion-icon name="ellipsis-vertical-outline" class="nav__icon"></ion-icon>
-              </button>
-            </li>
+            
           </ul>
         </nav>
       </header>
@@ -140,7 +141,7 @@
       </div>
     </div>
       <!--------------------------------- Recipe ---------------------------->
-      <main class="main">
+      <main class="main main-categories">
         <div class="categories categories-hidden">
           <ul class="category__list">
             <li class="category__item">
